@@ -23,6 +23,7 @@ public class User {
    private String email;
 
    @OneToOne(mappedBy = "user")
+   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
    private Car car;
 
 
