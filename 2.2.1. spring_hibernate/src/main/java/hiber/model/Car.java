@@ -4,19 +4,18 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="car")
+@Table(name = "car")
 public class Car implements Serializable {
 
     @Id
-    @OneToOne
-    @JoinColumn(name="user_id", referencedColumnName = "id")
-    private User user;
-    @Column(name="model")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "model")
     private String model;
-    @Column(name="series")
+    @Column(name = "series")
     private int series;
 
-    public Car(){
+    public Car() {
     }
 
     public Car(String model, int series) {
@@ -40,12 +39,12 @@ public class Car implements Serializable {
         this.series = series;
     }
 
-    public User getUser() {
-        return user;
+    public Long getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
